@@ -36,9 +36,17 @@ export class AppComponent {
     // document.body.className = this.theme();
   }
 
+  ngOnChnage() {
+    console.log('ngOnChnage run');
+  }
+
   toggleDarkMode() {
     this.theme.update((currentValue) =>
       currentValue === 'light' ? 'dark' : 'light'
     );
+  }
+
+  changeQuantity(event: Event) {
+    this.quantity.set((event.target as HTMLInputElement).valueAsNumber);
   }
 }
