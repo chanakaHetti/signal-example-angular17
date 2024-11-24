@@ -2,10 +2,13 @@ import { Component, signal, effect, computed } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
+import { Product } from './product';
+import { ProductListComponent } from './product-list/product-list.component';
+
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, CommonModule],
+  imports: [RouterOutlet, CommonModule, ProductListComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
@@ -33,6 +36,13 @@ export class AppComponent {
       product.name.toLowerCase().includes(this.filterName().toLowerCase())
     );
   });
+
+  // Use case of input signal
+  allProducts: Product[] = [
+    { id: 1, name: 'Milk', price: 1.45 },
+    { id: 2, name: 'Bread', price: 2.9 },
+    { id: 3, name: 'Chicken', price: 3.25 },
+  ];
 
   constructor() {
     console.log('constructor run');
