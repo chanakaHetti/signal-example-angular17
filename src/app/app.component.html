@@ -18,3 +18,19 @@
   value="{{ quantity() }}"
   (change)="changeQuantity($event)"
 />
+
+<br />
+<br />
+<hr />
+
+<h3>Another Computed Signal Use-case</h3>
+<input type="text" (input)="changeFilter($event)" />
+<table>
+  <tbody>
+    <tr *ngFor="let product of filteredProducts()">
+      <td>{{ product.id }}</td>
+      <td>{{ product.name }}</td>
+      <td>{{ product.price }}</td>
+    </tr>
+  </tbody>
+</table>
